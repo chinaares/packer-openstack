@@ -42,7 +42,6 @@
     "disk_size": 40960,
     "format": "qcow2",
     "headless": true,
-    "qemuargs": [ [ "-m", "1024m"],[ "-display", "vnc=:1"],["-machine", "type=pc-1.0" ] ],
     "boot_wait": "10s"
     },
     {
@@ -71,6 +70,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "10s",
+	"headless": true,
       "disk_size": 40960,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Ubuntu_64",
