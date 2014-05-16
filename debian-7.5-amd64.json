@@ -39,7 +39,6 @@
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-debian-7.5-amd64",
       "vboxmanage": [
         [ "modifyvm", "{{.Name}}", "--memory", "384" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
@@ -64,7 +63,6 @@
             "console-keymaps-at/keymap=us <wait>",
             "<enter><wait>"
     ],
-    "vm_name": "packer-debian-7.5-amd64",
     "accelerator": "kvm",
 "output_directory": "qemu",
     "disk_size": 4096,

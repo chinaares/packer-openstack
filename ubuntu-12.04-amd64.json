@@ -56,7 +56,6 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-ubuntu-12.04-amd64"
     },
     {
       "type": "qemu",
@@ -96,7 +95,6 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
-      "vm_name": "packer-ubuntu-12.04-amd64",
     "accelerator": "kvm",
     "disk_size": 4096,
     "format": "qcow2",

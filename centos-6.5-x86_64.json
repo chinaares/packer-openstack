@@ -34,8 +34,7 @@
           "1"
         ]
       ],
-      "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-centos-6.5-x86_64"
+      "virtualbox_version_file": ".vbox_version"
     },
     {
 "type":"qemu",
@@ -53,7 +52,6 @@
       "iso_checksum": "f21a71e8e31df73297bdd1ccd4a64a36831284bd",
       "iso_checksum_type": "sha1",
       "iso_url": "{{user `mirror`}}/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
-      "vm_name": "packer-centos-6.5-x86_64",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
     "ssh_port": 22,
