@@ -55,7 +55,7 @@
           "1"
         ]
       ],
-      "virtualbox_version_file": ".vbox_version",
+      "virtualbox_version_file": ".vbox_version"
     },
     {
       "type": "qemu",
