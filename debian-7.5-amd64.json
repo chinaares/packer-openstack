@@ -27,7 +27,7 @@
 "headless": true,
 "output_directory": "virtualbox",
       "disk_size": 4096,
-      "guest_os_type": "Debian",
+      "guest_os_type": "Debian_64",
       "http_directory": "http",
     "iso_checksum": "200948e5885da3b67730293a1426845f90239c62",
     "iso_checksum_type": "sha1",
