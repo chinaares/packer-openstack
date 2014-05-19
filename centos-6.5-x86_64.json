@@ -75,11 +75,13 @@
   "source": "files/debian/cloud.cfg",
   "destination": "/tmp/cloud.cfg"
   },
+  {
   "type": "shell",
   "scripts": [
   "scripts/openstack-debian.sh",
   "scripts/cleanup.sh"
    ]
+  }
   ],
   "variables": {
     "chef_version": "provisionerless",
