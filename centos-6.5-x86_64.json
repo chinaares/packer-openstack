@@ -60,11 +60,6 @@
     }
   ],
   "provisioners": [
-    {
-      "environment_vars": [
-        "CHEF_VERSION={{user `chef_version`}}"
-      ],
-      "provisioners": [
   {
   "type": "file",
   "source": "scripts/common.sh",
@@ -88,5 +83,3 @@
     "mirror": "http://mirrors.kernel.org/centos"
   }
 }
-}
-
