@@ -1,10 +1,12 @@
 packer-openstack
 ================
 
-packer-openstack
+Making a openstack and vbox images
 
-#assembling
-PACKER_CACHE_DIR="/srv/images/sources" packer build debian-7.5-amd64.json
-
-#cleaning
-rm -rf output-packer-debian-7.5-amd64 output-virtualbox-iso /root/VirtualBox*
+Usage
+================
+make debian-7.5-amd64.vbox
+make debian-7.5-amd64.qcow2
+make qemu
+make vbox
+make all
