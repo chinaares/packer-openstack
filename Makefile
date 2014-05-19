@@ -5,7 +5,8 @@
 
 %.vbox: %.json;
 	PACKER_CACHE_DIR="/srv/images/sources" packer build -except=qemu $<
-	mv virtualbox/packer-virtualbox-iso.vdi /srv/images/$@
+	tar cf $<.tar virtualbox/packer-virtualbox-iso-disk1.vmdk virtualbox/packer-virtualbox-iso.ovf
+	mv $<.tar /srv/images
 	rm -rf virtualbox
 
 qemu: $(patsubst %.json,%.qcow2,$(wildcard *.json))
