@@ -2,12 +2,10 @@
 . /tmp/common.sh
 set -x
 
-fi
 
 # install cloud packages
 $yum update
     $yum install cloud-init cloud-utils cloud-utils-growpart git
-fi
 
 if [ "$OS" == "centos" ] ; then
     # Change default user to centos and add to wheel
