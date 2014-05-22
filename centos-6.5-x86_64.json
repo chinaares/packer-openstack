@@ -70,12 +70,12 @@
   {
   "type": "file",
   "source": "files/centos/cloud.cfg",
-  "destination": "/etc/cloud/cloud.cfg"
+  "destination": "/tmp/cloud.cfg"
   },
   {
   "type": "file",
   "source": "scripts/firstboot.sh",
-  "destination": "/etc/firstboot.sh"
+  "destination": "/tmp/firstboot.sh"
   },
   {
   "type": "shell",
