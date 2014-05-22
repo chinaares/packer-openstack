@@ -68,12 +68,18 @@
   {
   "type": "file",
   "source": "files/centos/cloud.cfg",
-  "destination": "/tmp/cloud.cfg"
+  "destination": "/etc/cloud/cloud.cfg"
   },
+  {
+  "type": "file",
+  "source": "scripts/firstboot.sh",
+  "destination": "/etc/firstboot.sh"
+  }
   {
   "type": "shell",
       "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
   "scripts": [
+  "scripts/growroot.sh"
   "scripts/openstack-yum.sh",
   "scripts/cleanup.sh"
    ]

@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 
 if [ -d /var/log/firstboot ] ; then
   # Get user pub key from metadata server

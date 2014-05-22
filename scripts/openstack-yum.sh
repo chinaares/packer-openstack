@@ -2,6 +2,9 @@
 . /tmp/common.sh
 set -x
 
+echo "/etc/firstboot.sh && sed -i '/firstboot.sh/d' /etc/rc.local" >> /etc/rc.local
+chmod 755 /etc/firstboot.sh
+
 
 # install cloud packages
 $yum update
