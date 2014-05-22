@@ -24,7 +24,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "10s",
-"headless": true,
+"headless": false,
 "output_directory": "virtualbox",
       "disk_size": 4096,
       "guest_os_type": "Debian_64",
@@ -32,15 +32,15 @@
     "iso_checksum": "200948e5885da3b67730293a1426845f90239c62",
     "iso_checksum_type": "sha1",
     "iso_url": "{{user `mirror`}}/7.5.0/amd64/iso-cd/debian-7.5.0-amd64-CD-1.iso",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
+      "ssh_username": "cloud-user",
+      "ssh_password": "unsecurepass",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
+      "shutdown_command": "echo 'cloud-user'|sudo -S /sbin/shutdown -hP now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "vboxmanage": [
-        [ "modifyvm", "{{.Name}}", "--memory", "384" ],
+        [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
       ]
     },
@@ -72,23 +72,24 @@
     "iso_checksum": "200948e5885da3b67730293a1426845f90239c62",
     "iso_checksum_type": "sha1",
     "iso_url": "{{user `mirror`}}/7.5.0/amd64/iso-cd/debian-7.5.0-amd64-CD-1.iso",
-    "ssh_username": "vagrant",
-    "ssh_password": "vagrant",
+    "ssh_username": "cloud-user",
+    "ssh_password": "unsecurepass",
     "ssh_port": 22,
     "ssh_wait_timeout": "10000s",
-    "shutdown_command": "echo 'vagrant'|sudo -S /sbin/shutdown -hP now",
+    "shutdown_command": "echo 'cloud-user'|sudo -S /sbin/shutdown -hP now",
     "boot_wait": "10s"
     }
   ],
   "provisioners": [
     {
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
+        "scripts/openstack-debian.sh",
+        "scripts/cleanup.sh",
         "scripts/debian/update.sh",
         "scripts/common/sshd.sh",
         "scripts/debian/networking.sh",
         "scripts/debian/sudoers.sh",
-        "scripts/common/vagrant.sh",
         "scripts/common/vmtools.sh",
         "scripts/common/chef.sh",
         "scripts/debian/cleanup.sh"
