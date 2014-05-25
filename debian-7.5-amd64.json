@@ -24,7 +24,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "10s",
-"headless": false,
+"headless": true,
 "output_directory": "virtualbox",
       "disk_size": 4096,
       "guest_os_type": "Debian_64",
@@ -81,21 +81,24 @@
     }
   ],
   "provisioners": [
-    {
-      "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
-      "scripts": [
-        "scripts/openstack-debian.sh",
-        "scripts/cleanup.sh",
-        "scripts/debian/update.sh",
-        "scripts/common/sshd.sh",
-        "scripts/debian/networking.sh",
-        "scripts/debian/sudoers.sh",
-        "scripts/common/vmtools.sh",
-        "scripts/common/chef.sh",
-        "scripts/debian/cleanup.sh"
-      ],
+  {
+  "type": "file",
+  "source": "scripts/common.sh",
+  "destination": "/tmp/common.sh"
+  },
+  {
+  "type": "file",
+  "source": "files/centos/cloud.cfg",
+  "destination": "/tmp/cloud.cfg"
+  },
+  {
       "type": "shell",
-      "environment_vars": [ "CHEF_VERSION={{user `chef_version`}}" ]
+      "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "scripts": [
+  "scripts/growroot.sh",
+  "scripts/openstack-debian.sh",
+  "scripts/cleanup.sh"
+      ]
     }
   ]
 }
