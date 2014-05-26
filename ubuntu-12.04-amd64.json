@@ -114,6 +114,11 @@
   "destination": "/tmp/cloud.cfg"
   },
   {
+  "type": "file",
+  "source": "scripts/firstboot.sh",
+  "destination": "/tmp/firstboot.sh"
+  },
+  {
       "type": "shell",
       "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
