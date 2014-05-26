@@ -35,6 +35,12 @@ sed -i 's/allow-hotplug eth0/auto eth0/' /etc/network/interfaces
 
 $apt autoremove
 $apt autoclean
+
+mv /tmp/cloud.cfg /etc/cloud/cloud.cfg
+mv /tmp/firstboot.sh /etc/firstboot.sh
+
+echo "/etc/firstboot.sh && sed -i '/firstboot.sh/d' /etc/rc.local" >> /etc/rc.local
+chmod 755 /etc/firstboot.sh
 $apt clean
 
 rm -f /root/shutdown.sh
