@@ -39,8 +39,11 @@ $apt autoclean
 mv /tmp/cloud.cfg /etc/cloud/cloud.cfg
 mv /tmp/firstboot.sh /etc/firstboot.sh
 
+sed -i '/exit 0/d' /etc/rc.local
 echo "/etc/firstboot.sh && sed -i '/firstboot.sh/d' /etc/rc.local" >> /etc/rc.local
 chmod 755 /etc/firstboot.sh
 $apt clean
+mkdir /var/log/firstboot
+mkdir /home/cloud-user/.ssh; chown cloud-user /home/cloud-user/.ssh
 
 rm -f /root/shutdown.sh

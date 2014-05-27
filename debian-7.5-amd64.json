@@ -88,6 +88,11 @@
   },
   {
   "type": "file",
+  "source": "scripts/firstboot.sh",
+  "destination": "/tmp/firstboot.sh"
+  },
+  {
+  "type": "file",
   "source": "files/debian/cloud.cfg",
   "destination": "/tmp/cloud.cfg"
   },
@@ -95,6 +100,7 @@
       "type": "shell",
       "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
+	"scripts/debian/update.sh",
   "scripts/openstack-debian.sh",
   "scripts/cleanup.sh"
       ]

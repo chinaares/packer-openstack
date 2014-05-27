@@ -10,3 +10,15 @@ Usage
 * make qemu
 * make vbox
 * make all
+
+Structure
+================
+#first step:
+kickstart/preseed making a full system for packer needs
+
+#second step:
+packer change necessary files in a raw image
+making a grow root step (growroot.sh)
+
+#third step:
+image booting first time (firstboot.sh)
