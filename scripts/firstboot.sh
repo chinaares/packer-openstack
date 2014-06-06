@@ -17,8 +17,15 @@ if [ -d /var/log/firstboot ] ; then
   hostname -F /etc/hostname
 
   # Regenerate host ssh key
-  ssh-keygen -A
-  /etc/init.d/ssh restart
+
+  if [ -f /etc/debian_version ]; then
+    ssh-keygen -A
+    /etc/init.d/ssh restart
+  elif [ -f /etc/redhat-release ]; then
+    rm -rf /etc/ssh/ssh_host*
+    sed -i -e 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config
+    /etc/init.d/sshd restart
+  fi
 
   # Remove the firstboot marker
   rm -rf /var/log/firstboot

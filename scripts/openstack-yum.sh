@@ -4,6 +4,7 @@ set -x
 
 mv /tmp/cloud.cfg /etc/cloud/cloud.cfg
 mv /tmp/firstboot.sh /etc/firstboot.sh
+mkdir /var/log/firstboot
 
 echo "/etc/firstboot.sh && sed -i '/firstboot.sh/d' /etc/rc.local" >> /etc/rc.local
 chmod 755 /etc/firstboot.sh
@@ -36,3 +37,4 @@ $yum erase git
 
 # Make sure sudo works properly with openstack
 sed -i "s/^.*requiretty$/Defaults !requiretty/" /etc/sudoers
+
