@@ -17,10 +17,10 @@ rm -f /root/locale-preseed.cfg
 
 
 # Only on non-vagrant hosts
-if [ ! -f /home/vagrant/.vbox_version ] ; then
-    # Remove system ssh-keys so that each machine is unique
-    rm -f /etc/ssh/*key*
-fi
+#if [ ! -f /home/vagrant/.vbox_version ] ; then
+#    # Remove system ssh-keys so that each machine is unique
+#    rm -f /etc/ssh/*key*
+#fi
 
 # cleanup
 if [ -f /etc/debian_version ] ; then
@@ -59,6 +59,8 @@ echo "iface eth0 inet dhcp" >> /etc/network/interfaces.d/eth0.cfg
 echo "auto lo" > /etc/network/interfaces
 echo "iface lo inet loopback" >> /etc/network/interfaces
 echo "source /etc/network/interfaces.d/*.cfg" >> /etc/network/interfaces
+
+ufw allow OpenSSH
 
 
 

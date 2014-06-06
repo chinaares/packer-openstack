@@ -110,7 +110,12 @@
   },
   {
   "type": "file",
-  "source": "files/ubuntu/cloud.cfg",
+  "source": "scripts/firstboot.sh",
+  "destination": "/tmp/firstboot.sh"
+  },
+  {
+  "type": "file",
+  "source": "files/ubuntu/cloud14.cfg",
   "destination": "/tmp/cloud.cfg"
   },
   {
@@ -122,8 +127,8 @@
       "type": "shell",
       "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
-  "scripts/openstack-debian.sh",
-  "scripts/cleanup.sh"
+  "scripts/openstack-ubuntu.sh",
+  "scripts/cleanup1404.sh"
       ]
     }
   ],
