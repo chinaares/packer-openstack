@@ -27,5 +27,4 @@ rm -f 05-extend-rootpart.sh
 
 tail -4 /boot/grub/grub.conf | sed s/initramfs/initramfs-extend_rootpart/g| sed s/CentOS/ResizePartition/g | sed s/crashkernel=auto/crashkernel=0@0/g >> /boot/grub/grub.conf
 
-# let's run the kernel & initramfs that expands the partition only once
-echo "savedefault --default=1" | grub --batch
+sed -i -e 's/default=0/default=1/g' /boot/grub/grub.conf
