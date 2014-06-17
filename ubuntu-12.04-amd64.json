@@ -122,6 +122,7 @@
       "type": "shell",
       "execute_command": "echo 'cloud-user' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
+  "scripts/ubuntu/1204_kernelfix.sh",
   "scripts/openstack-debian.sh",
   "scripts/cleanup.sh"
       ]
