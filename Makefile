@@ -1,7 +1,9 @@
 %.qcow2: %.json;
 	PACKER_CACHE_DIR="/srv/images/sources" packer build -except=virtualbox-iso $<
-	qemu-img convert -O qcow2 -c qemu/packer-qemu.qcow2 /srv/images/$@
+	virt-sparsify qemu/packer-qemu.qcow2 qemu/packer-qemu-sparsy.qcow2
+	qemu-img convert -O qcow2 qemu/packer-qemu-sparsy.qcow2 /srv/images/$@ -c
 	rm -rf qemu
+	./release.sh $@
 
 %.vbox: %.json;
 	PACKER_CACHE_DIR="/srv/images/sources" packer build -except=qemu $<

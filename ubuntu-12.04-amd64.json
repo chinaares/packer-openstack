@@ -124,7 +124,7 @@
       "scripts": [
   "scripts/ubuntu/1204_kernelfix.sh",
   "scripts/openstack-debian.sh",
-  "scripts/cleanup.sh"
+  "scripts/cleanup1204.sh"
       ]
     }
   ],

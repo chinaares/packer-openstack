@@ -16,6 +16,9 @@ if [ -d /var/log/firstboot ] ; then
   curl -m 10 http://169.254.169.254/latest/meta-data/public-hostname | grep novalocal > /etc/hostname
   hostname -F /etc/hostname
 
+#fix .novalocal resolving bug
+echo "127.0.0.1 `cat /etc/hostname`" >> /etc/hosts
+
   # Regenerate host ssh key
 
   if [ -f /etc/debian_version ]; then
@@ -30,3 +33,4 @@ if [ -d /var/log/firstboot ] ; then
   # Remove the firstboot marker
   rm -rf /var/log/firstboot
 fi
+

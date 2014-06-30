@@ -46,6 +46,14 @@ elif [ -f /etc/redhat-release ] ; then
         xargs -r yum -y remove
     yum -y clean all
 fi
+
+apt-get --yes --purge remove memtest86+ linux-source linux-headers-generic-lts-saucy linux-firmware
+apt-get --yes --purge remove linux-image-3.11.0-15-generic linux-image-3.11.0-23-generic linux-source-3.2.0 linux-headers-3.11.0-15
+apt-get --yes --purge remove binutils rpcbind
+
+apt-get clean 
+rm -rf /var/lib/apt/lists/*
+
 # Have a sane vimrc
 echo "set background=dark" >> /etc/vimrc
 rm /tmp/common.sh

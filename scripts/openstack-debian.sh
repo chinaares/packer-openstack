@@ -33,8 +33,8 @@ sed -i 's/env_reset/env_reset\nDefaults\t\!requiretty/' /etc/sudoers
 # Fix networking to auto bring up eth0 and work correctly with cloud-init
 sed -i 's/allow-hotplug eth0/auto eth0/' /etc/network/interfaces
 
-$apt autoremove
-$apt autoclean
+#$apt autoremove
+#$apt autoclean
 
 mv /tmp/cloud.cfg /etc/cloud/cloud.cfg
 mv /tmp/firstboot.sh /etc/firstboot.sh

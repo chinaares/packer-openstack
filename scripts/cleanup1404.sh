@@ -62,6 +62,11 @@ echo "source /etc/network/interfaces.d/*.cfg" >> /etc/network/interfaces
 
 ufw allow OpenSSH
 
+apt-get --yes --purge remove binutils rpcbind
+
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+
 
 
 # Have a sane vimrc
